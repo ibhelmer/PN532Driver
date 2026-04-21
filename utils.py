@@ -1,4 +1,7 @@
 def checksum(data):
+    """
+    Calculate checksum for data
+    """
     s = 0
     for b in data:
         s += b
@@ -6,6 +9,9 @@ def checksum(data):
 
 
 def build_frame(payload):
+    """
+    payload includes TFI + CMD + params
+    """
     length = len(payload)
     lcs = (-length) & 0xFF
     dcs = checksum(payload)

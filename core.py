@@ -1,3 +1,28 @@
+"""
+===============================================================================
+ Title:        PN532Driver-/core.py
+ Description:  Micropython Driver for PN532 NFC/RFID from NXP
+               https://github.com/ibhelmer/PN532Driver
+
+ Author:       Ib Helmer Nielsen
+ Created:      2026-04-21
+ Version:      <0.5.0>
+
+ Hardware:     ESP32-C6, PN532 NFC RFID Wireless Module V3
+ Interfaces:   I2C / SPI / UART 
+ Dependencies: machine, time, micropython
+               Micropython v1.28.0
+
+ License:      MIT 
+
+===============================================================================
+ Change Log:
+ ------------------------------------------------------------------------------
+ Version  Date        Author      Description
+ -------  ----------  ----------  --------------------------------------------
+ 0.5.0    2026-04-21  Ib          Initial version
+===============================================================================
+"""
 from .utils import build_frame
 
 _HOST_TO_PN532 = 0xD4

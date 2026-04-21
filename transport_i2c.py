@@ -3,7 +3,18 @@ from .transport_base import PN532TransportBase
 class PN532I2CTransport(PN532TransportBase):
     """
     I2C transport layer for PN532.
-    """
+
+    Handles low-level communication over I2C, including:
+    - Writing PN532 frames (with leading control byte)
+    - Reading responses (skipping status byte)
+    - Checking device readiness via polling or IRQ
+
+    Args:
+        i2c: Initialized machine.I2C instance
+        addr (int): I2C address (default 0x24)
+        irq (Pin, optional): IRQ pin for ready signal
+        reset (Pin, optional): Reset pin for hardware reset
+    """ 
 
     def __init__(self, i2c, addr=0x24, irq=None, reset=None):
         super().__init__(irq=irq, reset=reset)

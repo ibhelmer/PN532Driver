@@ -3,8 +3,10 @@ from time import sleep_ms, ticks_ms, ticks_diff
 class PN532TransportBase:
     """
     Base transport interface for PN532 communication.
-    """
 
+    Defines the common API used by the PN532 driver, regardless of
+    whether the chip is accessed over I2C, SPI, or UART.
+    """
     def __init__(self, irq=None, reset=None):
         self.irq = irq
         self.reset = reset

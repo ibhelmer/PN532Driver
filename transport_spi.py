@@ -7,8 +7,18 @@ _SPI_STATREAD  = 0x02
 class PN532SPITransport(PN532TransportBase):
     """
     SPI transport layer for PN532.
-    """
 
+    Handles low-level communication over SPI, including:
+    - Writing command/data frames
+    - Reading responses
+    - Checking device readiness via status reads or IRQ
+
+    Args:
+        spi: Initialized machine.SPI instance
+        cs (Pin): Chip select pin
+        irq (Pin, optional): IRQ pin for ready signal
+        reset (Pin, optional): Reset pin for hardware reset
+    """
     def __init__(self, spi, cs, irq=None, reset=None):
         super().__init__(irq=irq, reset=reset)
         self.spi = spi
