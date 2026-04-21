@@ -1,0 +1,5 @@
+https://www.elechouse.com/elechouse/images/product/PN532_module_V3/PN532_%20Manual_V3.pdf
+https://www.elechouse.com/elechouse/images/product/PN532_module_V3/PN532_shematic_drowing.pdf
+https://www.nxp.com/docs/en/user-guide/141520.pdf
+https://github.com/elechouse/PN532
+https://github.com/elechouse/NFC_Module_DEV
