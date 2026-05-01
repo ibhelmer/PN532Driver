@@ -85,7 +85,12 @@ micropython-pn532/
     └── troubleshooting.md
 ```
 ---
+## License
 
+Copyright (c) 2026 Ib Helmer Nielsen.
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+---
 ## Quick Start
 
 ### I2C Example
