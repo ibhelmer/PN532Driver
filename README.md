@@ -38,24 +38,52 @@ A modular, memory-conscious MicroPython driver for the PN532 NFC controller supp
 ---
 
 ## Project Structure
-pn532/<br>
-├── core.py # PN532 protocol logic<br>
-├── frame.py # Frame build/parse (ACK + checksum)<br>
-├── constants.py # Command + protocol constants<br>
-├── utils.py # Helper functions<br>
-├── errors.py # Custom exceptions<br>
-├── transport_base.py # Abstract transport layer<br>
-├── transport_i2c.py # I2C implementation<br>
-├── transport_spi.py # SPI implementation<br>
-├── transport_uart.py # UART implementation<br>
-├── mifare.py # MIFARE Classic support<br>
-├── ntag.py # NTAG / Ultralight support<br>
-├── ndef.py # NDEF helper<br>
-└── tests/
->	├── mock_transport.py<br>
->	└── test_frame.py<br>
 
-
+```text
+micropython-pn532/
+├── README.md
+├── LICENSE
+├── CHANGELOG.md
+├── manifest.py
+├── pyproject.toml
+├── .gitignore
+│
+├── pn532/
+│   ├── __init__.py
+│   ├── constants.py
+│   ├── errors.py
+│   ├── utils.py
+│   ├── frame.py
+│   ├── core.py
+│   ├── transport_base.py
+│   ├── transport_i2c.py
+│   ├── transport_spi.py
+│   ├── transport_uart.py
+│   ├── mifare.py
+│   ├── ntag.py
+│   └── ndef.py
+│
+├── examples/
+│   ├── read_card_i2c.py
+│   ├── read_card_spi.py
+│   ├── read_card_uart.py
+│   ├── read_mifare_classic.py
+│   ├── read_ntag.py
+│   └── write_ndef_text.py
+│
+├── tests/
+│   ├── mock_transport.py
+│   ├── test_frame.py
+│   ├── test_checksum.py
+│   └── test_ndef.py
+│
+└── docs/
+    ├── wiring.md
+    ├── api.md
+    ├── pn532_frames.md
+    ├── link.txt
+    └── troubleshooting.md
+```
 ---
 
 ## Quick Start
@@ -66,11 +94,9 @@ pn532/<br>
 from machine import I2C, Pin
 from pn532 import PN532, PN532I2CTransport
 
-i2c = I2C(0, scl=Pin(9), sda=Pin(8), freq=400000)
-irq = Pin(10, Pin.IN, Pin.PULL_UP)
-rst = Pin(11, Pin.OUT, value=1)
+i2c = I2C(0, scl=Pin(20), sda=Pin(19), freq=100000)
 
-transport = PN532I2CTransport(i2c, irq=irq, reset=rst)
+transport = PN532I2CTransport(i2c, irq=None, reset=None)
 nfc = PN532(transport, debug=True)
 
 print(nfc.begin())
