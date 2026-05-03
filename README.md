@@ -85,12 +85,6 @@ micropython-pn532/
     └── troubleshooting.md
 ```
 ---
-## License
-
-Copyright (c) 2026 Ib Helmer Nielsen.
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
----
 ## Quick Start
 
 ### I2C Example
@@ -108,3 +102,12 @@ print(nfc.begin())
 
 card = nfc.read_passive_target()
 print(card)
+```
+---
+## License
+
+Copyright (c) 2026 Ib Helmer Nielsen.
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+---
+

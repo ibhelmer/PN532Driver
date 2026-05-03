@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Ib Helmer Nielsen
+# SPDX-License-Identifier: MIT
 from machine import Pin, UART
 from pn532 import PN532, PN532UARTTransport
 

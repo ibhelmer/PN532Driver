@@ -1,3 +1,6 @@
+# Copyright (c) 2026 Ib Helmer Nielsen
+# SPDX-License-Identifier: MIT
+
 class PN532Error(Exception):
     pass
 
